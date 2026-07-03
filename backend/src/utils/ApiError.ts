@@ -1,4 +1,3 @@
-// Custom API error class
 export class ApiError extends Error {
   public readonly statusCode: number;
 
@@ -17,6 +16,8 @@ export class ApiError extends Error {
 
     this.errors = errors;
 
-    Error.captureStackTrace(this, this.constructor);
+    if ("captureStackTrace" in Error) {
+      Error.captureStackTrace?.(this, this.constructor);
+    }
   }
 }

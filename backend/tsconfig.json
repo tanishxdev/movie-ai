@@ -3,6 +3,7 @@
     "target": "ES2022",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
+
     "rootDir": "./src",
     "outDir": "./dist",
 
@@ -11,10 +12,11 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
 
-    "skipLibCheck": true,
+    "types": ["node"],
 
+    "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
 
-  "include": ["src", "src/schemas"]
+  "include": ["src"]
 }
