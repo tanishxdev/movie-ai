@@ -5,16 +5,21 @@ const envSchema = z.object({
 
   GOOGLE_API_KEY: z.string().min(1),
 
-  // OPENAI_API_KEY: z.string().optional(),
-
-  LLM_PROVIDER: z.enum([
-    "google",
-    "openai"
-  ]).default("google"),
+  LLM_PROVIDER: z.enum(["google", "openai"]).default("google"),
 
   GOOGLE_MODEL: z.string(),
 
-  // OPENAI_MODEL: z.string()
+  NODE_ENV: z
+    .enum(["development", "production", "test"])
+    .default("development"),
+
+  RATE_LIMIT_WINDOW_MS: z.coerce
+    .number()
+    .default(15 * 60 * 1000),
+
+  RATE_LIMIT_MAX: z.coerce
+    .number()
+    .default(30),
 });
 
 export const env = envSchema.parse(process.env);
