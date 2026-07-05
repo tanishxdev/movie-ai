@@ -21,6 +21,12 @@ app.use(express.json());
 // Logger
 app.use(morgan('dev'));
 
+app.use(
+  cors({
+    origin: ['http://localhost:5173', 'https://movie-ai-alpha.vercel.app'],
+  })
+);
+
 app.get('/health', (_, res) => {
   res.status(200).json({
     success: true,
