@@ -1,8 +1,10 @@
-import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
-import { env } from "./env.js";
+import { ChatGroq } from '@langchain/groq';
+import { env } from './env.js';
 
-export const llm = new ChatGoogleGenerativeAI({
-  apiKey: env.GOOGLE_API_KEY,
-  model: env.GOOGLE_MODEL,
+export const llm = new ChatGroq({
+  apiKey: env.GROQ_API_KEY,
+
+  model: env.GROQ_MODEL,
+
   temperature: 0.3,
 });
