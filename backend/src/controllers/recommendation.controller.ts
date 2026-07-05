@@ -1,20 +1,15 @@
 import { Request, Response } from 'express';
-
 import { getRecommendations } from '../services/recommendation.service.js';
-import { ApiResponse } from '../utils/ApiResponse.js';
+import { recommendationRequestSchema } from '../schemas/request.schema.js';
 
-// Generate movie recommendations
 export async function recommendMovie(req: Request, res: Response) {
-  
-  const result = await getRecommendations(req.body);
+  const input = recommendationRequestSchema.parse(req.body);
 
-  return res
-    .status(200)
-    .json(
-      new ApiResponse(
-        true,
-        'Movie recommendations fetched successfully.',
-        result
-      )
-    );
+  const result = await getRecommendations(input);
+
+  res.json({
+    success: true,
+
+    data: result,
+  });
 }

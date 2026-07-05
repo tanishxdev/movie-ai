@@ -1,28 +1,41 @@
-import {
-  ErrorRequestHandler,
-} from "express";
+import { NextFunction, Request, Response } from "express";
+import { ZodError } from "zod";
 
-import { ApiError } from "../utils/ApiError.js";
+export function errorMiddleware(
+  err: unknown,
+  req: Request,
+  res: Response,
+  next: NextFunction
+) {
 
-// Global error handler
-export const errorHandler: ErrorRequestHandler = (
-  error,
-  req,
-  res,
-  next
-) => {
-  if (error instanceof ApiError) {
-    return res.status(error.statusCode).json({
+  if (err instanceof ZodError) {
+
+    return res.status(400).json({
+
       success: false,
-      message: error.message,
-      errors: error.errors ?? null,
+
+      message: "Validation failed",
+
+      errors: err.issues.map(issue => ({
+
+        field: issue.path.join("."),
+
+        message: issue.message,
+
+      })),
+
     });
+
   }
 
-  console.error(error);
+  console.error(err);
 
   return res.status(500).json({
+
     success: false,
+
     message: "Internal Server Error",
+
   });
-};
+
+}

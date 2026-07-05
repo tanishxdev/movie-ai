@@ -1,6 +1,5 @@
 import { z } from "zod";
 
-// Validate incoming request body
 export const recommendationRequestSchema = z.object({
   genre: z
     .string()
@@ -19,7 +18,5 @@ export const recommendationRequestSchema = z.object({
     .max(10),
 });
 
-// Request type
-export type RecommendationRequest = z.infer<
-  typeof recommendationRequestSchema
->;
+export type RecommendationRequest =
+  z.infer<typeof recommendationRequestSchema>;

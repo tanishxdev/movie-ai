@@ -1,62 +1,36 @@
-import express from "express";
-import cors from "cors";
+import express from 'express';
+import cors from 'cors';
+import helmet from 'helmet';
+import morgan from 'morgan';
 
-import recommendationRoutes from "./routes/recommendation.routes.js";
-
-import { errorHandler } from "./middlewares/error.middleware.js";
-
-import { logger } from "./utils/logger.js";
+import recommendationRouter from './routes/recommendation.routes.js';
+import { errorMiddleware } from './middlewares/error.middleware.js';
+import { notFoundMiddleware } from './middlewares/not-found.middleware.js';
 
 const app = express();
 
-// Global Middlewares              
+// Security
+app.use(helmet());
 
-app.use(
-  cors({
-    origin: "*",
-  })
-);
+// Enable CORS
+app.use(cors());
 
+// Parse JSON body
 app.use(express.json());
 
-app.use(express.urlencoded({ extended: true }));
+// Logger
+app.use(morgan('dev'));
 
-// Request Logger                  
-
-app.use((req, res, next) => {
-  logger.info({
-    method: req.method,
-    url: req.originalUrl,
-    ip: req.ip,
-  });
-
-  next();
-});
-
-// Health Check                    
-
-app.get("/health", (_, res) => {
+app.get('/health', (_, res) => {
   res.status(200).json({
     success: true,
-    message: "Server is healthy",
+    message: 'Server is healthy',
   });
 });
 
-// API Routes                      
+app.use('/api', recommendationRouter);
 
-app.use("/api", recommendationRoutes);
-
-// 404 Handler                     
-
-app.use((req, res) => {
-  res.status(404).json({
-    success: false,
-    message: `Route ${req.originalUrl} not found`,
-  });
-});
-
-// Global Error Handler            
-
-app.use(errorHandler);
+app.use(notFoundMiddleware);
+app.use(errorMiddleware);
 
 export default app;
