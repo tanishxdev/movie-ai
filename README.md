@@ -13,8 +13,6 @@
 
 - **Frontend:** https://movie-ai-alpha.vercel.app/
 - **Backend API:** https://movie-ai-ezym.onrender.com
-- **Repository:** https://github.com/tanishxdev/movie-ai/tanishxdev/movie-ai
-
 ---
 
 # Why I Built This
