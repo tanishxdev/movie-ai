@@ -4,7 +4,7 @@ import { BrandMark } from "@/components/ui/BrandMark";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { APP_NAME } from "@/constants/options";
 
-const GITHUB_URL = "https://github.com";
+const GITHUB_URL = "https://github.com/tanishxdev/movie-ai";
 
 export function Navbar() {
   return (

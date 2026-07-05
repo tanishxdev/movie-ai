@@ -21,7 +21,7 @@ export function Footer() {
 
         <div className="flex items-center gap-3">
           <a
-            href="https://github.com"
+            href="https://github.com/tanishxdev/movie-ai"
             target="_blank"
             rel="noreferrer noopener"
             aria-label="GitHub"
@@ -30,7 +30,7 @@ export function Footer() {
             <FiGithub size={14} />
           </a>
           <a
-            href="https://twitter.com"
+            href="https://x.com/tanishxdev/"
             target="_blank"
             rel="noreferrer noopener"
             aria-label="Twitter"

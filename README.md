@@ -13,7 +13,7 @@
 
 - **Frontend:** https://movie-ai-alpha.vercel.app/
 - **Backend API:** https://movie-ai-ezym.onrender.com
-- **Repository:** https://github.com/tanishxdev/movie-ai
+- **Repository:** https://github.com/tanishxdev/movie-ai/tanishxdev/movie-ai
 
 ---
 
@@ -290,7 +290,7 @@ Previous project:
 
 **AI Knowledge Base Chat (RAG)**
 
-https://github.com/tanishxdev/AI-Knowledge-Base-Chat-RAG
+https://github.com/tanishxdev/movie-ai/tanishxdev/AI-Knowledge-Base-Chat-RAG
 
 The goal is to progressively build toward production-ready AI systems rather than isolated demos.
 
@@ -300,7 +300,7 @@ Next project: To be determined based on what I learn from this project.
 # Running Locally
 
 ```bash
-git clone https://github.com/tanishxdev/movie-ai
+git clone https://github.com/tanishxdev/movie-ai/tanishxdev/movie-ai
 
 cd backend
 npm install
@@ -338,7 +338,7 @@ VITE_API_URL=
 
 **Tanish Kumar**
 
-- GitHub: https://github.com/tanishxdev
+- GitHub: https://github.com/tanishxdev/movie-ai/tanishxdev
 - Portfolio: https://thisistanishcodelab.vercel.app/
 
 I enjoy learning backend engineering, distributed systems, DevOps, and modern AI application development. This repository documents that learning journey publicly.
